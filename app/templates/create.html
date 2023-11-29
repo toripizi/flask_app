@@ -1,0 +1,27 @@
+<!-- create.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Create User</h2>
+
+        <form class="user-form" method="POST" action="{{ url_for('user.user_create') }}">
+            <label for="username">Username:</label>
+            <input type="text" name="username" required>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" required>
+
+            <button type="submit">Create User</button>
+        </form>
+
+        <p class="back-to-home"><a href="{{ url_for('home.index') }}">Back to Home</a></p>
+    </div>
+</body>
+</html>

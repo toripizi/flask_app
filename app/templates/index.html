@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>My Awesome App</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home.index') }}">Home</a></li>
+                <li><a href="{{ url_for('user.user_create') }}">Create User</a></li>
+                <li><a href="{{ url_for('user.user_list') }}">User List</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Welcome to My Awesome App!</h2>
+        <p>This is the homepage of the application.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 My Awesome App</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  server:
+    image: docker.io/ctf/task_1:latest
+    volumes:
+      - ./app:/opt/ctf/app
+    command: bash -c "flask --app ./app/server.py run --host=0.0.0.0"
+    ports:
+      - 5000:5000
+
+  ctf_postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: ctf
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: ctf
+    volumes:
+      - postgres-db-volume:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "ctf"]
+      interval: 5s
+      retries: 5
+    restart: always
+
+
+volumes:
+  postgres-db-volume:
